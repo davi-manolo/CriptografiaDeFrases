@@ -1,6 +1,6 @@
 package app;
 
-//Classe que representa a interface no console.2
+//Classe que representa a interface no console.
 public abstract class UI {
 
   public static void printUI() {
