@@ -1,5 +1,7 @@
 package app;
 
+import java.util.List;
+
 //Classe que pega a frase recebida pela digitação do console
 //e realiza o processo de criptografia.
 public abstract class Encrypt {
@@ -39,12 +41,22 @@ public abstract class Encrypt {
   //Método para verificar os caracteres que não precisam ser convertidos
   //como por exemplo o espaço e sinais como exclamação, interrogação, ponto, vírgula e entre outros.
   private static boolean convertIlegalChar(int v) {
-    if(v >= 48 && v <= 57 || v >= 65 && v <= 90
-    || v >= 97 && v <= 122 || v >= 192 && v <= 246
-    || v >= 248 && v <= 255) {
+    if(intCharASCII().contains(v)) {
       return true;
     }
     return false;
+  }
+
+  private static List<Integer> intCharASCII() {
+    Integer[] i = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+                   84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107,
+                   108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 128,
+                   129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144,
+                   145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
+                   161, 162, 163, 164, 165, 181, 182, 198, 199, 209, 210, 211, 212, 224, 225, 226,
+                   227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237};
+    List<Integer> listIntChar = List.of(i);
+    return listIntChar;
   }
 
 }
